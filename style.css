@@ -110,7 +110,7 @@ header h1 {
 /* Players Grid */
 .players-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
     gap: 15px;
 }
 
@@ -248,22 +248,23 @@ th {
 
 td {
     text-align: center;
-    padding: 12px;
+    padding: 12px 8px;
+    /* Reduced side padding */
     border-bottom: 1px solid var(--border);
 }
 
-.score-diff {
-    font-size: 0.8em;
-    opacity: 0.7;
-    margin-left: 4px;
+.score-cell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
 }
 
 .arrow {
-    font-size: 1.1em;
-    margin-left: 6px;
+    font-size: 0.9em;
     font-weight: bold;
-    display: inline-block;
-    vertical-align: middle;
+    flex-shrink: 0;
 }
 
 .arrow.up {
@@ -283,11 +284,101 @@ td {
 }
 
 /* Actions in table */
-.actions-container {
+.history-actions {
+    position: relative;
+    width: 40px;
+    padding-right: 15px;
+}
+
+.actions-desktop {
     display: flex;
     gap: 8px;
     justify-content: center;
+}
+
+.actions-mobile {
+    display: none;
+    position: relative;
+}
+
+.dots-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.dots-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    padding: 4px;
+    display: none;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.dropdown-menu.active {
+    display: flex;
+}
+
+.dropdown-item {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    padding: 8px 12px;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-item.delete {
+    color: var(--danger);
+}
+
+@media (max-width: 480px) {
+    .actions-desktop {
+        display: none;
+    }
+
+    .actions-mobile {
+        display: block;
+    }
+
+    .history-section {
+        padding: 15px;
+    }
+
+    th,
+    td {
+        padding: 10px 4px;
+        font-size: 0.85rem;
+    }
 }
 
 .action-btn {
