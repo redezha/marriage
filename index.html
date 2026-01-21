@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Марьяж - Подсчет Очков</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a2a44'/%3E%3Cpath d='M16 24s-8-4.8-8-9.6c0-3.2 2.4-4.8 4.8-4.8 1.6 0 3.2.8 3.2 2.4 0-1.6 1.6-2.4 3.2-2.4 2.4 0 4.8 1.6 4.8 4.8 0 4.8-8 9.6-8 9.6z' fill='%23ff4d4d'/%3E%3Cpath d='M16 8l3 4.5 4.5-1.5-1.5 6h-12l-1.5-6 4.5 1.5 3-4.5z' fill='%23ffd700'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1><span data-i18n="title">Marriage</span> <span class="accent">Score</span></h1>
+            <div class="header-controls">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <button id="add-player-btn" class="icon-btn" title="Add Player">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <line x1="19" y1="8" x2="19" y2="14" />
+                        <line x1="16" y1="11" x2="22" y2="11" />
+                    </svg>
+                </button>
+                <button id="reset-btn" class="icon-btn" title="New Game">
+
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                        <path d="M3 3v5h5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="players-container" id="players-container">
+                <!-- Players will be rendered here by JS -->
+            </div>
+
+            <div class="controls-area">
+                <button id="add-round-btn" class="primary-btn" data-i18n="addRound">Add Round</button>
+            </div>
+
+            <div class="history-section">
+                <h2 data-i18n="history">History</h2>
+                <div class="table-wrapper">
+                    <table id="history-table">
+                        <thead>
+                            <tr id="history-header">
+                                <th>#</th>
+                                <!-- Player names headers will go here -->
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                            <!-- History rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Adding Log -->
+    <div id="score-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 data-i18n="roundResults">Round Results</h3>
+            <div id="modal-inputs" class="modal-inputs">
+                <!-- Inputs generated dynamically -->
+            </div>
+            <div class="modal-actions">
+                <button id="cancel-btn" class="secondary-btn" data-i18n="cancel">Cancel</button>
+                <button id="save-btn" class="primary-btn" data-i18n="save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
