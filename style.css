@@ -110,7 +110,7 @@ header h1 {
 /* Players Grid */
 .players-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
     gap: 15px;
 }
 
@@ -252,14 +252,26 @@ td {
     border-bottom: 1px solid var(--border);
 }
 
-tr:last-child td {
-    border-bottom: none;
-}
-
 .score-diff {
     font-size: 0.8em;
     opacity: 0.7;
     margin-left: 4px;
+}
+
+.arrow {
+    font-size: 1.1em;
+    margin-left: 6px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.arrow.up {
+    color: var(--success);
+}
+
+.arrow.down {
+    color: var(--danger);
 }
 
 .positive {
@@ -271,11 +283,11 @@ tr:last-child td {
 }
 
 /* Actions in table */
-.actions-cell {
+.actions-container {
     display: flex;
     gap: 8px;
     justify-content: center;
-    min-width: 60px;
+    align-items: center;
 }
 
 .action-btn {
